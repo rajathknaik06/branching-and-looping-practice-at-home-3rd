@@ -1,0 +1,76 @@
+""" Rohith is a data analyst who needs to categorize countries based on their population growth rates. Each country is assigned a unique code. Rohith will receive a code and corresponding data based on the code. If the data falls within specific thresholds, he needs to classify the country’s priority level. 
+
+
+
+Your task is to write a program that reads a country code and its associated data, and then determines if the priority is "High" or "Low."
+
+
+
+Thresholds:
+France: Priority is "High" if the percentage < 50, else "Low".
+Japan: Priority is "High" if life expectancy > 80, else "Low".
+Brazil: Priority is "High" if the urban population > 80, else "Low".
+Input format :
+The first line of input consists of an integer, representing the country code (1 for France, 2 for Japan, 3 for Brazil).
+
+If the country code is 1,
+
+The second line consists of a floating-point value N, representing the percentage of the English-speaking population.
+If the country code is 2,
+
+The second line consists of a floating-point value A, representing the average life expectancy in years.
+If the country code is 3,
+
+The second line consists of a floating-point value P, representing the percentage of the urban population.
+Output format :
+The first line of output displays "Priority: High" or "Priority: Low" based on the input data.
+
+If the country code is invalid, print "Invalid"."""
+
+
+# Initialize variables
+country_code = 0
+percentage = 0.0
+average_life_expectancy = 0.0
+urban_population = 0.0
+
+# Read country code
+while True:
+    country_code_input = input()
+    if country_code_input.isdigit():
+        country_code = int(country_code_input)
+        break
+
+# Process based on country code
+if country_code == 1:  # France
+    while True:
+        percentage_input = input()
+        if percentage_input.replace('.', '', 1).isdigit():
+            percentage = float(percentage_input)
+            break
+    if percentage < 50:
+        print("Priority: High")
+    else:
+        print("Priority: Low")
+elif country_code == 2:  # Japan
+    while True:
+        average_life_expectancy_input = input()
+        if average_life_expectancy_input.replace('.', '', 1).isdigit():
+            average_life_expectancy = float(average_life_expectancy_input)
+            break
+    if average_life_expectancy > 80:
+        print("Priority: High")
+    else:
+        print("Priority: Low")
+elif country_code == 3:  # Brazil
+    while True:
+        urban_population_input = input()
+        if urban_population_input.replace('.', '', 1).isdigit():
+            urban_population = float(urban_population_input)
+            break
+    if urban_population > 80:
+        print("Priority: High")
+    else:
+        print("Priority: Low")
+else:
+    print("Invalid")
